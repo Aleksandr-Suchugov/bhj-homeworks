@@ -13,7 +13,7 @@ function sizeChange() {
         flag = 0;
         image.width -= 100;
     }
-    document.getElementById('clicker__counter').textContent = counter + '\n' + 'Скорость клика: ' + ((clickTimer - timer) / 1000).toFixed(2);
+    document.getElementById('clicker__counter').textContent = counter + '\n' + 'Скорость клика: ' + ((clickTimer - timer) / 1000).toFixed(2) + ' сек.';
     timer = Date.now();
 }
 image.onclick = sizeChange;
