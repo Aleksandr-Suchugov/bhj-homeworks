@@ -13,9 +13,6 @@ for (let i = 0; i < mainElmsCount; i++) {
             return;
         }       
         if (subMenuItem) {          
-            console.log(event.currentTarget);
-            console.log(this);
-            
             if (activeMenu) {
                 activeMenu.classList.remove('menu_active');          
             }
