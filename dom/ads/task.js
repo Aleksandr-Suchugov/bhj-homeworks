@@ -7,7 +7,7 @@ function blurbToggle() {
     if (flag) {
         flag = false;
         let element;
-        let currentTextBlock = document.querySelector('.rotator__case_active');
+        const currentTextBlock = document.querySelector('.rotator__case_active');
         let nextTextBlock = currentTextBlock.nextElementSibling;
         nextTextBlock ? element = nextTextBlock : element = blurb[0];
         timeOut = element.getAttribute('data-speed');    
