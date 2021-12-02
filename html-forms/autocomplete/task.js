@@ -68,6 +68,26 @@ class Autocomplete {
   }
 
   getMatches( text ) {
+    const inputField = document.querySelector('input');
+    const arrayOfContacts = [];
+    const length = this.input.length;
+    for (let idx = 0; idx < length; idx++) {
+      arrayOfContacts.push({
+        text: this.input.options[idx].innerHTML, 
+        value: idx + 1
+      });
+    }
+    inputField.addEventListener('keypress', (ev) => {
+      if (ev.key === 'Enter' && inputField.value) {
+        for (let item of arrayOfContacts) {
+          console.log(item.text, item.value);
+          if (item.text.includes(text)) {
+            this.input.selectedIndex = item.value - 1;
+          }
+        }
+      }
+    });
+    
     /*
       TODO: этот метод нужно дописать
       text - фраза, которую вводят в поле поиска
@@ -81,12 +101,7 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    return [
-      {
-        text: 'Чубакка',
-        value: '1'
-      }
-    ];
+    return arrayOfContacts;
   }
 }
 
