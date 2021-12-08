@@ -68,41 +68,27 @@ class Autocomplete {
   }
 
   getMatches( text ) {
-    const inputField = document.querySelector('input');
     const arrayOfContacts = [];
-    const length = this.input.length;
-    for (let idx = 0; idx < length; idx++) {
-      arrayOfContacts.push({
-        text: this.input.options[idx].innerHTML, 
-        value: idx + 1
-      });
+    for (let option of this.input.options) {
+      if (option.innerText.includes(text)) {
+        arrayOfContacts.push({text: option.innerText, value: option.value});
+      }
     }
-    inputField.addEventListener('keypress', (ev) => {
-      if (ev.key === 'Enter' && inputField.value) {
-        for (let item of arrayOfContacts) {
-          console.log(item.text, item.value);
-          if (item.text.includes(text)) {
-            this.input.selectedIndex = item.value - 1;
-          }
-        }
-      }
-    });
-    
-    /*
-      TODO: этот метод нужно дописать
-      text - фраза, которую вводят в поле поиска
-      Метод должен вернуть массив.
-
-      Он формируется на основе списка опций select-элемента (this.input)
-      Подходящие опции - те, чей текст содержит то, что есть в аргументе text
-      Необходимо вернуть массив объектов со свойствами:
-      {
-        text: 'Содержимое <option>',
-        value: 'Содержимое атрибута value'
-      }
-    */
     return arrayOfContacts;
   }
+      /*
+        TODO: этот метод нужно дописать
+        text - фраза, которую вводят в поле поиска
+        Метод должен вернуть массив.
+
+        Он формируется на основе списка опций select-элемента (this.input)
+        Подходящие опции - те, чей текст содержит то, что есть в аргументе text
+        Необходимо вернуть массив объектов со свойствами:
+        {
+          text: 'Содержимое <option>',
+          value: 'Содержимое атрибута value'
+        }
+      */      
 }
 
 new Autocomplete( document.querySelector( '.autocomplete' ));
