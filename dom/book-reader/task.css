@@ -94,6 +94,12 @@ body {
   align-items: center;
 }
 
+.book__content {
+  box-sizing: border-box;
+  padding: 20px;
+  font-size: 14px;
+}
+
 .font-size_small {
   font-size: 12px;
 }
@@ -109,11 +115,6 @@ body {
 
 .book {
   font-family: Georgia;
-}
-
-.book__content {
-  box-sizing: border-box;
-  padding: 20px;
 }
 
 .book p:first-letter {
